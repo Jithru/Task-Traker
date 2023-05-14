@@ -24,6 +24,7 @@ export class TaskService {
 
   constructor(private http: HttpClient) { }
 
+
   getTask(): Observable<Task[]> {
     // const tasks = of(TASKS);
     return this.http.get<Task[]>(this.apiURL);
@@ -38,5 +39,9 @@ export class TaskService {
     const Url = `${this.apiURL}/${task.id}`;
     return this.http.put<Task>(Url, task);
 
+  }
+
+  addTask(task: Task): Observable<Task> {
+    return this.http.post<Task>(this.apiURL, task);
   }
 }

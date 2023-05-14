@@ -35,4 +35,9 @@ export class TasksComponent implements OnInit {
     window.location.reload();
   }
 
+  addTask(task: Task) {
+    this.taskService.addTask(task).subscribe((task) => this.tasks.push());
+    window.location.reload();
+  }
+
 }
